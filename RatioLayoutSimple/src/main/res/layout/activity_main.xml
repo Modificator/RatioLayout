@@ -6,14 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <cn.modificactor.ratiolayoutlib.RatioRelativeLayout
-        android:layout_width="200dp"
+    <!--    <cn.modificactor.ratiolayoutlib.RatioRelativeLayout
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="#00ff00"
-        app:ratioHeight="15"
+        app:ratioHeight="10"
         app:ratioWidth="20"
-        app:reference="width">
+        app:reference="width"></cn.modificactor.ratiolayoutlib.RatioRelativeLayout>-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-       
-    </cn.modificactor.ratiolayoutlib.RatioRelativeLayout>
+        <cn.modificactor.ratiolayoutlib.RatioRelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#00ff00"
+            app:ratioHeight="10"
+            app:ratioWidth="20"
+            app:reference="width" />
+
+        <cn.modificactor.ratiolayoutlib.RatioRelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#00ffff"
+            app:ratioHeight="10"
+            app:ratioWidth="20"
+            app:reference="width" />
+
+        <cn.modificactor.ratiolayoutlib.RatioRelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#ffff00"
+            app:ratioHeight="10"
+            app:ratioWidth="20"
+            app:reference="width" />
+    </LinearLayout>
+
 </RelativeLayout>

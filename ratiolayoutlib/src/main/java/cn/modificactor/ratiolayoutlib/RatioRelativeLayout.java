@@ -26,10 +26,6 @@ public class RatioRelativeLayout extends RelativeLayout {
      */
     double ratioHeight = 1;
 
-    public enum ReferenceType {
-        WIDTH,
-        HEIGHT
-    }
 
     public RatioRelativeLayout(Context context) {
         this(context, null);
@@ -49,14 +45,10 @@ public class RatioRelativeLayout extends RelativeLayout {
         //获取宽比例
         ratioWidth = typedArray.getFloat(R.styleable.RatioRelativeLayout_ratioWidth, 1);
         typedArray.recycle();
-
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        setMeasuredDimension(View.getDefaultSize(0, widthMeasureSpec),
-//                View.getDefaultSize(0, (int) (widthMeasureSpec / ratioWidth * ratioHeight)));
-        Log.e("------", View.getDefaultSize(0, widthMeasureSpec) + "   " + widthMeasureSpec + "  " + getMeasuredWidth());
         /**
          * 如果以宽慰基准边则宽不变，高按比例得出具体数值，反之亦然
          */

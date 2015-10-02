@@ -4,13 +4,14 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 
 /**
  * Created by Modificator on 2015/8/22.
  */
-public class RatioFrameLayout extends FrameLayout {
+public class RatioLinearLayout extends LinearLayout {
 
     /**
      * 以哪边为参考，默认为宽
@@ -26,22 +27,15 @@ public class RatioFrameLayout extends FrameLayout {
     double ratioHeight = 1;
 
 
-
-    @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
-
-    }
-
-    public RatioFrameLayout(Context context) {
+    public RatioLinearLayout(Context context) {
         this(context, null);
     }
 
-    public RatioFrameLayout(Context context, AttributeSet attrs) {
+    public RatioLinearLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public RatioFrameLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public RatioLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RatioRelativeLayout, defStyleAttr, 0);
         //获取参考边
@@ -51,7 +45,6 @@ public class RatioFrameLayout extends FrameLayout {
         //获取宽比例
         ratioWidth = typedArray.getFloat(R.styleable.RatioRelativeLayout_ratioWidth, 1);
         typedArray.recycle();
-
     }
 
     @Override
