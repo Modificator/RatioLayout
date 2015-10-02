@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/RatioLayoutSimple.iml" filepath="$PROJECT_DIR$/RatioLayoutSimple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RatioLayoutSimple/RatioLayoutSimple-RatioLayoutSimple.iml" filepath="$PROJECT_DIR$/RatioLayoutSimple/RatioLayoutSimple-RatioLayoutSimple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ratiolayoutlib/ratiolayoutlib.iml" filepath="$PROJECT_DIR$/ratiolayoutlib/ratiolayoutlib.iml" />
+    </modules>
+  </component>
+</project>
