@@ -17,7 +17,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
-        <cn.modificactor.ratiolayoutlib.RatioRelativeLayout
+        <cn.modificactor.ratiolayout.RatioRelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -26,7 +26,7 @@
             app:ratioWidth="20"
             app:reference="width" />
 
-        <cn.modificactor.ratiolayoutlib.RatioRelativeLayout
+        <cn.modificactor.ratiolayout.RatioRelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -35,7 +35,7 @@
             app:ratioWidth="20"
             app:reference="width" />
 
-        <cn.modificactor.ratiolayoutlib.RatioRelativeLayout
+        <cn.modificactor.ratiolayout.RatioRelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"

@@ -1,17 +1,16 @@
-package cn.modificactor.ratiolayoutlib;
+package cn.modificactor.ratiolayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 
 /**
  * Created by Modificator on 2015/8/22.
  */
-public class RatioLinearLayout extends LinearLayout {
+public class RatioRelativeLayout extends RelativeLayout {
 
     /**
      * 以哪边为参考，默认为宽
@@ -27,15 +26,15 @@ public class RatioLinearLayout extends LinearLayout {
     double ratioHeight = 1;
 
 
-    public RatioLinearLayout(Context context) {
+    public RatioRelativeLayout(Context context) {
         this(context, null);
     }
 
-    public RatioLinearLayout(Context context, AttributeSet attrs) {
+    public RatioRelativeLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public RatioLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public RatioRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RatioRelativeLayout, defStyleAttr, 0);
         //获取参考边

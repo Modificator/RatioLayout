@@ -1,4 +1,4 @@
-package cn.modificactor.ratiolayoutlib;
+package cn.modificactor.ratiolayout;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

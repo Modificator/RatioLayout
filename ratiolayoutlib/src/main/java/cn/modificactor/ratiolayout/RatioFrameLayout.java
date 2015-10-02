@@ -1,4 +1,4 @@
-package cn.modificactor.ratiolayoutlib;
+package cn.modificactor.ratiolayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
