@@ -5,7 +5,7 @@ RatioLayout 按比例布局，适配屏幕
 #####靠眼力？别开玩笑了，你那电脑屏幕，眼睛会瞎的
 #####还在为不同的屏幕 写几套尺寸？ 省省吧，哪有那么浪费时间的
 
-上图
+上图<p/>
 <img src="images/image1.png" width="500px"/><br>
 <img src="images/image2.png" width="500px"/><br>
 
@@ -15,7 +15,7 @@ RatioLayout 按比例布局，适配屏幕
 
 使用方法：
 ```xml
-    <cn.modificactor.ratiolayoutlib.RatioRelativeLayout
+    <cn.modificactor.ratiolayout.RatioRelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="#00ff00"
