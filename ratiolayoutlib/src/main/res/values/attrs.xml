@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?><!--  Created by Modificator on . -->
 <resources>
-    <declare-styleable name="RatioRelativeLayout">
-        <attr name="ratioWidth" format="float" />
-        <attr name="ratioHeight" format="float" />
-        <attr name="reference" format="enum">
+    <declare-styleable name="RatioLayout">
+        <attr name="w" format="float" />
+        <attr name="h" format="float" />
+        <attr name="by" format="enum">
             <enum name="width" value="0" />
             <enum name="height" value="1" />
         </attr>

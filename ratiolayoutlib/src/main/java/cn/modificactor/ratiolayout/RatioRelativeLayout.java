@@ -10,6 +10,7 @@ import cn.modificactor.ratiolayoutlib.R;
 
 /**
  * Created by Modificator on 2015/8/22.
+ * update on 2017-01-15
  */
 public class RatioRelativeLayout extends RelativeLayout {
 
@@ -37,13 +38,13 @@ public class RatioRelativeLayout extends RelativeLayout {
 
     public RatioRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RatioRelativeLayout, defStyleAttr, 0);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RatioLayout, defStyleAttr, 0);
         //获取参考边
-        reference = typedArray.getInt(R.styleable.RatioRelativeLayout_reference, 0) == 0 ? ReferenceType.WIDTH : ReferenceType.HEIGHT;
+        reference = typedArray.getInt(R.styleable.RatioLayout_by, 0) == 0 ? ReferenceType.WIDTH : ReferenceType.HEIGHT;
         //获取高比例
-        ratioHeight = typedArray.getFloat(R.styleable.RatioRelativeLayout_ratioHeight, 1);
+        ratioHeight = typedArray.getFloat(R.styleable.RatioLayout_h, 1);
         //获取宽比例
-        ratioWidth = typedArray.getFloat(R.styleable.RatioRelativeLayout_ratioWidth, 1);
+        ratioWidth = typedArray.getFloat(R.styleable.RatioLayout_w, 1);
         typedArray.recycle();
     }
 

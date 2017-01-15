@@ -16,67 +16,42 @@ RatioLayout 按比例布局，适配屏幕
 使用方法：
 ```xml
     <cn.modificactor.ratiolayout.RatioRelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="#00ff00"
-        app:ratioHeight="10"
-        app:ratioWidth="20"
-        app:reference="width|height" />
+        app:h="10"
+        app:w="20"
+        app:by="width|height" />
 ```
-首先呢，你需要，自己确定高或者宽的具体尺寸（- - 在努力）
-然后呢app:reference 这个填入之前确定尺寸的是高还是宽
-app:ratioHeight
-app:ratioWidth
+首先呢，你需要，自己确定高或者宽的具体尺寸
+然后呢app:by 这个填入之前确定尺寸的是高还是宽
+app:h
+app:h
 这两个呢，就是宽高比了，直接填入IOS的尺寸也是可以的呀:)
 
 要有别的？
 构造方法填入
 ```java
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RatioRelativeLayout, defStyleAttr, 0);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RatioLayout, defStyleAttr, 0);
         //获取参考边
-        reference = typedArray.getInt(R.styleable.RatioRelativeLayout_reference, 0) == 0 ? ReferenceType.WIDTH : ReferenceType.HEIGHT;
+        reference = typedArray.getInt(R.styleable.RatioLayout_by, 0) == 0 ? ReferenceType.WIDTH : ReferenceType.HEIGHT;
         //获取高比例
-        ratioHeight = typedArray.getFloat(R.styleable.RatioRelativeLayout_ratioHeight, 1);
+        ratioHeight = typedArray.getFloat(R.styleable.RatioLayout_h, 1);
         //获取宽比例
-        ratioWidth = typedArray.getFloat(R.styleable.RatioRelativeLayout_ratioWidth, 1);
+        ratioWidth = typedArray.getFloat(R.styleable.RatioLayout_w, 1);
         typedArray.recycle();
 ```
 外面填入
 ```java
-    /**
-     * 以哪边为参考，默认为宽
-     */
-    ReferenceType reference = ReferenceType.WIDTH;
-    /**
-     * 宽的比例
-     */
-    double ratioWidth = 1;
-    /**
-     * 高的比例
-     */
-    double ratioHeight = 1;
+     //获取基准边的尺寸
+    int childSpec = reference == ReferenceType.WIDTH ? getMeasuredWidth() : getMeasuredHeight();
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        /**
-         * 如果以宽慰基准边则宽不变，高按比例得出具体数值，反之亦然
-         */
-        setMeasuredDimension(View.getDefaultSize(0, reference == ReferenceType.WIDTH ? widthMeasureSpec :
-                        (int) (heightMeasureSpec / ratioHeight * ratioWidth)),
-                View.getDefaultSize(0, reference == ReferenceType.HEIGHT ? heightMeasureSpec :
-                        (int) (widthMeasureSpec / ratioWidth * ratioHeight)));
 
-        int childSpec = reference == ReferenceType.WIDTH ? getMeasuredWidth() : getMeasuredHeight();
-        /**
-         * 获取非基准边的尺寸
-         */
-        int measureSpec = reference == ReferenceType.HEIGHT ? MeasureSpec.makeMeasureSpec(
-                (int) (childSpec / ratioHeight * ratioWidth), MeasureSpec.EXACTLY) :
-                MeasureSpec.makeMeasureSpec(
-                        (int) (childSpec / ratioWidth * ratioHeight), MeasureSpec.EXACTLY);
-
-        super.onMeasure(reference == ReferenceType.WIDTH ? widthMeasureSpec : measureSpec, reference == ReferenceType.HEIGHT ? heightMeasureSpec : measureSpec);
-    }
+    // 如果以宽为基准边则宽不变，高按比例得出具体数值，反之亦然
+    setMeasuredDimension(
+            (int) (reference == ReferenceType.WIDTH ? childSpec : childSpec * ratioWidth / ratioHeight),
+            (int) (reference == ReferenceType.HEIGHT ? childSpec : childSpec * ratioHeight / ratioWidth)
+    );
 ```
 
 
