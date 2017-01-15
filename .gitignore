@@ -7,6 +7,13 @@
 /captures
 /*/build/
 
+
+
+*.iml
+.externalNativeBuild
+/.idea/sonarlint
+/reports
+
 # Built application files
 *.apk
 *.ap_

@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import cn.modificactor.ratiolayoutlib.R;
+
 
 /**
  * Created by Modificator on 2015/8/22.
@@ -25,13 +27,6 @@ public class RatioFrameLayout extends FrameLayout {
      */
     double ratioHeight = 1;
 
-
-
-    @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
-
-    }
 
     public RatioFrameLayout(Context context) {
         this(context, null);
@@ -56,23 +51,16 @@ public class RatioFrameLayout extends FrameLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        /**
-         * 如果以宽慰基准边则宽不变，高按比例得出具体数值，反之亦然
-         */
-        setMeasuredDimension(View.getDefaultSize(0, reference == ReferenceType.WIDTH ? widthMeasureSpec :
-                        (int) (heightMeasureSpec / ratioHeight * ratioWidth)),
-                View.getDefaultSize(0, reference == ReferenceType.HEIGHT ? heightMeasureSpec :
-                        (int) (widthMeasureSpec / ratioWidth * ratioHeight)));
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
+        //获取基准边的尺寸
         int childSpec = reference == ReferenceType.WIDTH ? getMeasuredWidth() : getMeasuredHeight();
-        /**
-         * 获取非基准边的尺寸
-         */
-        int measureSpec = reference == ReferenceType.HEIGHT ? MeasureSpec.makeMeasureSpec(
-                (int) (childSpec / ratioHeight * ratioWidth), MeasureSpec.EXACTLY) :
-                MeasureSpec.makeMeasureSpec(
-                        (int) (childSpec / ratioWidth * ratioHeight), MeasureSpec.EXACTLY);
 
-        super.onMeasure(reference == ReferenceType.WIDTH ? widthMeasureSpec : measureSpec, reference == ReferenceType.HEIGHT ? heightMeasureSpec : measureSpec);
+
+        // 如果以宽为基准边则宽不变，高按比例得出具体数值，反之亦然
+        setMeasuredDimension(
+                (int) (reference == ReferenceType.WIDTH ? childSpec : childSpec * ratioWidth / ratioHeight),
+                (int) (reference == ReferenceType.HEIGHT ? childSpec : childSpec * ratioHeight / ratioWidth)
+        );
     }
 }
