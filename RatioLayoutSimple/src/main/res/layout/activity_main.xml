@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <!--    <cn.modificactor.ratiolayoutlib.RatioRelativeLayout
+<!--
+    &lt;!&ndash;    <cn.modificactor.ratiolayoutlib.RatioRelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="#00ff00"
         app:ratioHeight="10"
         app:ratioWidth="20"
-        app:reference="width"></cn.modificactor.ratiolayoutlib.RatioRelativeLayout>-->
+        app:reference="width"></cn.modificactor.ratiolayoutlib.RatioRelativeLayout>&ndash;&gt;
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
@@ -43,6 +43,8 @@
             app:ratioHeight="10"
             app:ratioWidth="20"
             app:reference="width" />
-    </LinearLayout>
-
+    </LinearLayout>-->
+<cn.modificactor.ratiolayoutsimple.LineButton
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
 </RelativeLayout>

@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?><!--  Created by Modificator on . -->
 <resources>
+
+    <attr name="w" format="float" />
+    <attr name="h" format="float" />
     <declare-styleable name="RatioLayout">
-        <attr name="w" format="float" />
-        <attr name="h" format="float" />
+        <attr name="w" />
+        <attr name="h" />
         <attr name="by" format="enum">
             <enum name="width" value="0" />
             <enum name="height" value="1" />
         </attr>
+    </declare-styleable>
+    <declare-styleable name="RatioLayout_Layout">
+        <attr name="x" format="float" />
+        <attr name="y" format="float" />
+        <attr name="w" />
+        <attr name="h" />
     </declare-styleable>
 </resources>
